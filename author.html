@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Assignment 6</title>
+</head>
+<body>
+<h1>Author entry Saiprakash Goud</h1>
+<h2>Getting input</h2>
+
+<form>
+    <label for="author">The hidden author name</label>
+    <input type ="password" id="author" name="author" value="Dickens"> <br>
+    <label for="guessAuthor">Guess the author </label>
+    <input type ="text" id="guessAuthor" name="guessAuthor" autofocus> <br>
+    <input type="button" onclick="checkAuthor();" value="Check the guess">
+</form>
+
+
+<p id="results">The count of good & oops guess </p>
+
+<script> 
+    var good=0;
+    var oops=0;
+    var count=0;
+    
+    function checkAuthor(){
+        console.log("Getting from values")
+        authorname = document.getElementById("author").value
+        guessauthorname = document.getElementById("guessAuthor").value
+        if(authorname == guessauthorname){
+            good = good + 1
+            alert("You got it right")            
+        }
+        else{ 
+        oops=oops+1
+        alert("Sorry")
+        
+    }
+    document.getElementById("results").innerHTML ="Good Guess : " + good + "\n Incorrect Guess : " +oops
+} 
+</script>
+
+</body>
+</html>
