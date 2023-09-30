@@ -29,12 +29,22 @@
 
     <div><br>
     <div class="form-group">
-    <input type="button" class="btn btn-success" value="Select a cruise" onclick="selectCruise()">
+    <input type="button" class="btn btn-primary" value="Select a cruise" onclick="selectCruise()">
     </div><br>
 </form>
 <p id="result">we select the cruise</p>
 </div>
+<div class="container">
+    <form>
+        <label for="days">Enter the number of days”</label>
+        <input type="text" id="days" name="days" value="days"><br>
 
+        <label for="price">Enter price</label>
+        <input type="text" id="price" name="price"><br>
+
+        <input type="button" class="btn btn-primary" value="Update the cruise" onclick="updateCruise()">
+    </form>
+</div>
 
 <script>
     let my_cruise={};
@@ -70,7 +80,15 @@ else
 
 document.getElementById("result").innerHTML = JSON.stringify(my_cruise)
 }
-
+</script>
+<script>
+    function updateCruise(){
+        days=document.getElementById("days").value
+        price=document.getElementById("price").value
+        my_cruise["days"]=days;
+        my_cruise["price"]=price;
+        document.getElementById("result").innerHTML=JSON.stringify(my_cruise)
+    }
 </script>
 
 
