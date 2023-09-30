@@ -8,6 +8,7 @@
     integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" 
     integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>
+
  </head>
 <body>
 <h1>Saiprakash Goud shows tip amounts</h1>
@@ -25,19 +26,58 @@
     </form>
     <p id="result"> The tip amount will be shown here</p><br>
 </div>
-
+<br>
+<div class="container">
+    <form>
+        <div class="container">
+        <label for="sum">sum</label>
+        <input type="radio" id="sum" name="sum" onclick="chooseOp()">
+        </div><br>
+        <div class="container">
+        <label for="diff">difference</label>
+        <input type="radio" id="diff" name="diff" onclick="chooseOp()">
+        </div><br>
+        <div class="container">
+        <label for="mult">product</label>
+        <input type="radio" id="mult" name="mult" onclick="chooseOp()">
+        </div><br>
+    </form>
+    <p id="result1"> The sum, difference, product values are displayed here </p><br>
+</div>
 <script>
     function tips(){
         let tipValue = parseFloat(document.getElementById("tipValue").value);
-        let startingPercentage = parseFloat(document.getElementById("secondValue").value);
+        let second1 = parseFloat(document.getElementById("secondValue").value);
         let myOutput="";
         for (let i = 0; i < 5; i++) {
-            let tipPercentage = startingPercentage + i * 4;
+            let tipPercentage = second1 + i * 4;
             let tipAmount = (tipValue * tipPercentage) / 100;
             myOutput += tipPercentage + "% is " + tipAmount + "; ";
         }
 
         document.getElementById("result").innerHTML="Tip are: "+ myOutput
+    }
+    function chooseOp(){
+        let base = parseFloat(document.getElementById("tipValue").value)
+        let tip = parseFloat(document.getElementById("secondValue").value)
+        sum=document.getElementById("sum").checked
+        diff=document.getElementById("diff").checked
+        mult=document.getElementById("mult").checked
+        if(sum)
+        {
+            let sum= parseFloat(base) + parseFloat(tip)
+            document.getElementById("result1").innerHTML="Sum of " + base+" and "+tip+" is "+ sum
+        }
+        else if(diff)
+        {
+            let diff=parseFloat(base)-parseFloat(tip)
+            document.getElementById("result1").innerHTML="difference of "+base+" and "+tip+" is "+ diff
+        }
+        else if(mult)
+        {
+            mult=parseFloat(base)*parseFloat(tip)
+            document.getElementById("result1").innerHTML="product of "+base+" and "+tip+" is "+ mult
+        }
     }
 </script>
 
